@@ -114,10 +114,8 @@ function logScore() {
 }
 
 function displayAnswer() {
-    $(currentPegs).off('hover');
-    $(currentPegs).off('click');
     for (var i = 0; i < answer.key.length; i++) {
-        var circle = '#a'+(i+1);
+        var circle = '#a'+i;
         fill(circle, answer.key[i]);
     }
     $('#answer').show(400);
