@@ -22,7 +22,7 @@ var answer = {
         // initialize the answer randomly
         var colorArr = Object.keys(colors);
         for (var i = 0; i < 5; i++) {
-            this.key.push(colors[colorArr[this.getRandomInt(7)]]);
+            this.key.push(colors[colorArr[this.getRandomInt(colorArr.length)]]);
         }
     },
     grade: function() {
@@ -89,11 +89,16 @@ $(currentPegs).click(function() {
     removeHighlight(this);
 });
 
+$('#newgame').click(function() {
+    location.reload();
+});
+
+$('#giveup').click(displayAnswer);
+
 function logScore() {
     if (answer.key.length === 0) {
         answer.initialize();
     }
-    console.log(answer.key);
     var scoreDiv = $("#score"+currentRow);
     var scores = answer.grade();
     scoreDiv.html('');
@@ -109,6 +114,8 @@ function logScore() {
 }
 
 function displayAnswer() {
+    $(currentPegs).off('hover');
+    $(currentPegs).off('click');
     for (var i = 0; i < answer.key.length; i++) {
         var circle = '#a'+(i+1);
         fill(circle, answer.key[i]);

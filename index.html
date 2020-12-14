@@ -15,25 +15,25 @@
     style="background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(201,201,204,1) 100%); background-attachment: fixed;">
     <div class="container">
         <h1 class="text-center">Mastermind</h1>
-        <h4 class="text-center text-muted">How to Play:</h4>
         <div class="d-flex justify-content-center">
             <div>
-        <p class="text-center text-muted">Hover over a peg to select it. To color a selected peg, type the first letter of the color you want.
-        <br />
-        'b' for blue, 't' for tan, 'w' for white, 'g' for green, 'r' for red, 'y' for yellow, 'o' for orange, 'm' for magenta.
-        <br />
-        When you are ready to submit your answer for a round, press 'enter'.
-        <br />
-        To clear a peg, click on it. To clear all of the pegs in a round, click the spacebar.
-        <br />
-        You have 12 rounds to find the right color combo.
-    </div>
-    </div>
+                <p class="text-center text-muted">Hover over a peg to select it. To color a selected peg, type the first
+                    letter of the color you want.
+                    <br />
+                    'b' for blue, 't' for tan, 'w' for white, 'g' for green, 'r' for red, 'y' for yellow, 'o' for
+                    orange, 'm' for magenta.
+                    <br />
+                    When you are ready to submit your answer for a round, press 'enter'. To clear a peg, click on it. To clear all of the pegs in a round, click the spacebar.
+                    <br />
+                    You have 12 rounds to find the right color combo.
+            </div>
+        </div>
     </div>
 
     <div class="container w-50 fixed-bottom">
         <div class="col">
             <div class="row" style="display: none;" id="answer">
+                <div class="col-1"></div>
                 <div class="col-2">
                     <p class="text-center">answer</p>
                 </div>
@@ -54,6 +54,7 @@
                 </div>
             </div>
             <div class="row" style="display: none;" id="12">
+                <div class="col-1"></div>
                 <div class="col-2">
                     <p class="text-center">12</p>
                 </div>
@@ -72,9 +73,10 @@
                 <div class="col-1">
                     <span class="peg12"><i class="fas fa-circle"></i></span>
                 </div>
-                <div class="col-5" style="display: none;" id="score12"></div>
+                <div class="col-4" style="display: none;" id="score12"></div>
             </div>
             <div class="row" style="display: none;" id="11">
+                <div class="col-1"></div>
                 <div class="col-2">
                     <p class="text-center">11</p>
                 </div>
@@ -93,9 +95,10 @@
                 <div class="col-1">
                     <span class="peg11"><i class="fas fa-circle"></i></span>
                 </div>
-                <div class="col-5" style="display: none;" id="score11"></div>
+                <div class="col-4" style="display: none;" id="score11"></div>
             </div>
             <div class="row" style="display: none;" id="10">
+                <div class="col-1"></div>
                 <div class="col-2">
                     <p class="text-center">10</p>
                 </div>
@@ -114,9 +117,10 @@
                 <div class="col-1">
                     <span class="peg10"><i class="fas fa-circle"></i></span>
                 </div>
-                <div class="col-5" style="display: none;" id="score10"></div>
+                <div class="col-4" style="display: none;" id="score10"></div>
             </div>
             <div class="row" style="display: none;" id="9">
+                <div class="col-1"></div>
                 <div class="col-2">
                     <p class="text-center">9</p>
                 </div>
@@ -135,9 +139,10 @@
                 <div class="col-1">
                     <span class="peg9"><i class="fas fa-circle"></i></span>
                 </div>
-                <div class="col-5" style="display: none;" id="score9">9</div>
+                <div class="col-4" style="display: none;" id="score9">9</div>
             </div>
             <div class="row" style="display: none;" id="8">
+                <div class="col-1"></div>
                 <div class="col-2">
                     <p class="text-center">8</p>
                 </div>
@@ -156,9 +161,10 @@
                 <div class="col-1">
                     <span class="peg8"><i class="fas fa-circle"></i></span>
                 </div>
-                <div class="col-5" style="display: none;" id="score8"></div>
+                <div class="col-4" style="display: none;" id="score8"></div>
             </div>
             <div class="row" style="display: none;" id="7">
+                <div class="col-1"></div>
                 <div class="col-2">
                     <p class="text-center">7</p>
                 </div>
@@ -177,9 +183,10 @@
                 <div class="col-1">
                     <span class="peg7"><i class="fas fa-circle"></i></span>
                 </div>
-                <div class="col-5" style="display: none;" id="score7"></div>
+                <div class="col-4" style="display: none;" id="score7"></div>
             </div>
             <div class="row" style="display: none;" id="6">
+                <div class="col-1"></div>
                 <div class="col-2">
                     <p class="text-center">6</p>
                 </div>
@@ -198,9 +205,10 @@
                 <div class="col-1">
                     <span class="peg6"><i class="fas fa-circle"></i></span>
                 </div>
-                <div class="col-5" style="display: none;" id="score6"></div>
+                <div class="col-4" style="display: none;" id="score6"></div>
             </div>
             <div class="row" style="display: none;" id="5">
+                <div class="col-1"></div>
                 <div class="col-2">
                     <p class="text-center">5</p>
                 </div>
@@ -219,9 +227,10 @@
                 <div class="col-1">
                     <span class="peg5"><i class="fas fa-circle"></i></span>
                 </div>
-                <div class="col-5" style="display: none;" id="score5"></div>
+                <div class="col-4" style="display: none;" id="score5"></div>
             </div>
             <div class="row" style="display: none;" id="4">
+                <div class="col-1"></div>
                 <div class="col-2">
                     <p class="text-center">4</p>
                 </div>
@@ -240,9 +249,10 @@
                 <div class="col-1">
                     <span class="peg4"><i class="fas fa-circle"></i></span>
                 </div>
-                <div class="col-5" style="display: none;" id="score4"></div>
+                <div class="col-4" style="display: none;" id="score4"></div>
             </div>
             <div class="row" style="display: none;" id="3">
+                <div class="col-1"></div>
                 <div class="col-2">
                     <p class="text-center">3</p>
                 </div>
@@ -261,9 +271,10 @@
                 <div class="col-1">
                     <span class="peg3"><i class="fas fa-circle"></i></span>
                 </div>
-                <div class="col-5" style="display: none;" id="score3"></div>
+                <div class="col-4" style="display: none;" id="score3"></div>
             </div>
             <div class="row" style="display: none;" id="2">
+                <div class="col-1"></div>
                 <div class="col-2">
                     <p class="text-center">2</p>
                 </div>
@@ -282,9 +293,10 @@
                 <div class="col-1">
                     <span class="peg2"><i class="fas fa-circle"></i></span>
                 </div>
-                <div class="col-5" style="display: none;" id="score2"></div>
+                <div class="col-4" style="display: none;" id="score2"></div>
             </div>
             <div class="row" id="1">
+                <div class="col-1"></div>
                 <div class="col-2">
                     <p class="text-center">1</p>
                 </div>
@@ -303,7 +315,17 @@
                 <div class="col-1">
                     <span class="peg1" id="05"><i class="fas fa-circle"></i></span>
                 </div>
-                <div class="col-5" style="display: none;" id="score1"></div>
+                <div class="col-4" style="display: none;" id="score1"></div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-between" style="padding-bottom:20px;">
+                    <div class="col-3">
+                        <button id="newgame" class="btn btn-outline-primary" style="text-decoration: none;">New Game</button>
+                    </div>
+                    <div class="col-3">
+                        <button id="giveup" class="btn btn-outline-secondary" style="text-decoration: none;">Give Up</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -311,7 +333,6 @@
 <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
 <script src="jquery.js"></script>
-<script src="user-interface.js"></script>
-<script src="grader.js"></script>
+<script src="grading.js"></script>
 
 </html>
