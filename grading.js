@@ -22,37 +22,39 @@ var answer = {
         // initialize the answer randomly
         var colorArr = Object.keys(colors);
         for (var i = 0; i < 5; i++) {
-            this.key.push(colors[colorArr[this.getRandomInt(colorArr.length)]]);
+            this.key.push(colors[colorArr[getRandomInt(colorArr.length)]]);
         }
-    },
-    grade: function() {
-        // returns an array with numBlack, numWhite
-        var numWhite = 0;
-        var numBlack = 0;
-        var userAnswerCpy = new Object(userAnswer);
-        for (var i = 0; i < this.key.length; i++) {
-            // check exact position
-            if (this.key[i] === userAnswerCpy[i]) {
-                numWhite++;
-                userAnswerCpy[i] = null;
-            } else {
-                // check the rest
-                for (var j = 0; j < userAnswerCpy.length; j++) {
-                    if (userAnswerCpy[j] === this.key[i] && (userAnswerCpy[j] !== this.key[j])) {
-                        numBlack++;
-                        userAnswerCpy[j] = null;
-                        break;
-                    }
-                }
-            }
-        }
-        return [numWhite, numBlack];
-    },
-    getRandomInt(max) {
-        return Math.floor(Math.random() * Math.floor(max));
     },
     key: []
 };
+
+function grade(userAnswer) {
+    // returns an array with numBlack, numWhite
+    var numWhite = 0;
+    var numBlack = 0;
+    var userAnswerCpy = new Object(userAnswer);
+    for (var i = 0; i < 5; i++) {
+        // check exact position
+        if (answer.key[i] === userAnswerCpy[i]) {
+            numWhite++;
+            userAnswerCpy[i] = null;
+        } else {
+            // check the rest
+            for (var j = 0; j < 5; j++) {
+                if (userAnswerCpy[j] === answer.key[i] && (userAnswerCpy[j] !== answer.key[j])) {
+                    numBlack++;
+                    userAnswerCpy[j] = null;
+                    break;
+                }
+            }
+        }
+    }
+    return [numWhite, numBlack];
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
 
 answer.initialize();
 
@@ -95,12 +97,9 @@ $('#newgame').click(function() {
 
 $('#giveup').click(displayAnswer);
 
-function logScore() {
-    if (answer.key.length === 0) {
-        answer.initialize();
-    }
+function logScore(answer) {
     var scoreDiv = $("#score"+currentRow);
-    var scores = answer.grade();
+    var scores = grade(answer);
     scoreDiv.html('');
     for (var i = 0; i < scores[1]; i++) {
         scoreDiv.append('<i class="fas fa-meh-blank"></i>');
@@ -121,6 +120,14 @@ function displayAnswer() {
     $('#answer').show(400);
 }
 
+function renderGuess(answer) {
+    $.each($(currentPegs), function(_index, value) {
+        answer.push($(value).css('color'));
+    });
+    $(currentPegs).off('hover');
+    $(currentPegs).off('click');
+}
+
 $(document).keypress(function(key) {
     var canLevelUp = true;
     // enter next level
@@ -131,13 +138,9 @@ $(document).keypress(function(key) {
             }
         });
         if (canLevelUp) {
-            $.each($(currentPegs), function(_index, value) {
-                userAnswer.push($(value).css('color'));
-            });
-            var gameWon = logScore();
+            renderGuess(userAnswer);
+            var gameWon = logScore(answer);
             userAnswer = [];
-            $(currentPegs).off('hover');
-            $(currentPegs).off('click');
             currentRow++;
             var newRow = '#' + currentRow;
             if (!gameWon) {
