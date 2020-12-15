@@ -108,6 +108,7 @@ function logScore(answer) {
         scoreDiv.append('<i class="far fa-meh-blank"></i>');
     }
     scoreDiv.show(400);
+    console.log(scores);
     // returns whether or not the game was won
     return scores[0] === 5;
 }
@@ -139,7 +140,7 @@ $(document).keypress(function(key) {
         });
         if (canLevelUp) {
             renderGuess(userAnswer);
-            var gameWon = logScore(answer);
+            var gameWon = logScore(userAnswer);
             userAnswer = [];
             currentRow++;
             var newRow = '#' + currentRow;
